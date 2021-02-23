@@ -1,0 +1,34 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Class
+@model List<Staff>
+@{
+    ViewBag.Title = "DepartmanDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Departman Detay</h2><br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active" >Departman Adı : @ViewBag.departman</li>
+</ol>                    
+<table class="table table-hover">
+    <tr>
+        <th>Personel</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Görsel</th>
+        <th>Satışlar</th>
+    </tr>
+   @foreach (var staff in Model)
+   {
+     <tr>
+        <td>@staff.StaffId</td>
+        <td>@staff.StaffName</td>
+        <td>@staff.StaffSurname</td>
+        <td>@staff.StaffImage</td>
+        <td><a href="/Department/DepartmanPersonelSatis/@staff.StaffId" class="btn btn-default"
+               style="background-color:lightcoral">Satışlar</a></td>
+    </tr>
+   }
+
+   
+</table>
+
