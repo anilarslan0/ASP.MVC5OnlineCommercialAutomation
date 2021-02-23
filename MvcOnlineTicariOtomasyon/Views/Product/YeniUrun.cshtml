@@ -1,0 +1,39 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Class.Product
+@{
+    ViewBag.Title = "YeniUrun";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Ürun</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.ProductName)
+    @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ProductBrand)
+    @Html.TextBoxFor(x => x.ProductBrand, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ProductStock)
+    @Html.TextBoxFor(x => x.ProductStock, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ProductFirstPrice)
+    @Html.TextBoxFor(x => x.ProductFirstPrice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ProductSalePrice)
+    @Html.TextBoxFor(x => x.ProductSalePrice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Category.CategoryId)
+    @*@Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })*@
+    @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.dgr1 , new{@class="form-control"})
+    <br />
+    @Html.LabelFor(x => x.ProductImage)
+    @Html.TextBoxFor(x => x.ProductImage, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Status)
+    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+</form>
+
+
+
