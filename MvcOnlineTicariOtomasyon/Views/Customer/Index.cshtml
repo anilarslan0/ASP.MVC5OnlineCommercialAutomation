@@ -1,0 +1,46 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Class
+@model List<Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Müşteriler</h2>
+<br />
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>ID</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var musteri in Model)
+    {
+<tr>
+    <td>@musteri.CustomerId</td>
+    <td>
+        @musteri.CustomerName
+    </td>
+    <td>@musteri.CustomerSurname</td>
+    <td>@musteri.CustomerCity</td>
+    <td>@musteri.CustomerMail</td>
+    <td>
+        <a href="/Customer/CustomerSil/@musteri.CustomerId" class="btn btn-danger">Sil</a>
+    </td>
+    <td>
+        <a href="/Customer/CustomerGetir/@musteri.CustomerId" class="btn btn-warning">Güncelle</a>
+    </td>
+    <td>
+        <a href="/Customer/MusteriSatis/@musteri.CustomerId" class="btn btn-primary">Satış Geçmişi</a>
+    </td>
+</tr>
+    }
+
+</table>
+<a href="/Customer/YeniMüşteri/" class="btn btn-info">Kategori Ekle</a>
+

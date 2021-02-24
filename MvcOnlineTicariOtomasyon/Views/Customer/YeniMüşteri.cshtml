@@ -1,0 +1,23 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Class.Customer
+@{
+    ViewBag.Title = "YeniMüşteri";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Müşteri</h2><br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x=>x.CustomerName)
+    @Html.TextBoxFor(x=>x.CustomerName, new { @class="form-control"})
+    <br />
+    @Html.LabelFor(x=>x.CustomerSurname)
+    @Html.TextBoxFor(x=>x.CustomerSurname, new { @class="form-control"})
+    <br />
+    @Html.LabelFor(x=>x.CustomerCity)
+    @Html.TextBoxFor(x=>x.CustomerCity, new { @class="form-control"})
+    <br />
+    @Html.LabelFor(x=>x.CustomerMail)
+    @Html.TextBoxFor(x=>x.CustomerMail, new { @class="form-control"})
+    <br />
+    
+    <button class="btn btn-info">Kaydet</button>
+</form>

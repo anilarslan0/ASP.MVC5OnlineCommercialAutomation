@@ -13,11 +13,12 @@ namespace MvcOnlineTicariOtomasyon.Models.Class
         public int CustomerId { get; set; }
 
         [Column(TypeName = "Varchar")]
-        [StringLength(30)]
+        [StringLength(30,ErrorMessage="En fazla 30 karakter yazabilirisiniz.")]
         public string CustomerName { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
+        [Required(ErrorMessage ="Bu alanı boş geçemezsiniz!")]
         public string CustomerSurname { get; set; }
 
         [Column(TypeName = "Varchar")]
@@ -26,6 +27,8 @@ namespace MvcOnlineTicariOtomasyon.Models.Class
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string CustomerMail { get; set; }
+
+        public bool Status { get; set; }
         public ICollection<SalesAction> SalesActions { get; set; }
 
     }
