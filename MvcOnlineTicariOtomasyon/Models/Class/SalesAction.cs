@@ -10,9 +10,6 @@ namespace MvcOnlineTicariOtomasyon.Models.Class
     {
         [Key]
         public int SaleId { get; set; }
-        //product
-        //Custumer
-        //staff
         public DateTime Date { get; set; }
         public int Piece { get; set; }
         public decimal Price { get; set; }
