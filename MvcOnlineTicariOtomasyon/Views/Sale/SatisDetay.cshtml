@@ -1,0 +1,39 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Class
+@model List<SalesAction>
+@{
+    ViewBag.Title = "SatisDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Satış Detayları</h2>
+<br />
+<table class="table table-condensed">
+    <tr>
+        <th>Satış Id</th>
+        <th>Ürün</th>
+        <th>Müşteri</th>
+        <th>Personel</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+    
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.SaleId</td>
+            <td>@item.Product.ProductName</td>
+            <td>@item.Customer.CustomerName @item.Customer.CustomerSurname</td>
+            <td>@item.Staff.StaffSurname @item.Staff.StaffSurname</td>
+            <td>@item.Price</td>
+            <td>@item.Piece</td>
+            <td>@item.TotalAmount</td>
+            <td>@item.Date</td>
+            
+        </tr>
+    }
+
+</table>
+<button class="btn btn-primary">Yazdır</button>

@@ -4,20 +4,22 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<table class="table table-bordered" style="margin-top:20px;">
-    <tr>
-        <th>ID</th>
-        <th>Ürün</th>
-        <th>Müşteri</th>
-        <th>Personel</th>
-        <th>Adet</th>
-        <th>Fiyat</th>
-        <th>Toplam</th>
-        <th>Tarih</th>
-        <th>Güncelle</th>
-        <th>Detaylar</th>
-    </tr>
+<br />
+<table id="tbl1" class="table table-bordered" style="margin-top:20px;">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ürün</th>
+            <th>Müşteri</th>
+            <th>Personel</th>
+            <th>Adet</th>
+            <th>Fiyat</th>
+            <th>Toplam</th>
+            <th>Tarih</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
     @foreach (var sa in Model)
     {
         <tr>
@@ -33,10 +35,10 @@
             <td>@sa.Date</td>
 
             <td>
-                <a href="/Staff/PersonelGetir/@sa.StaffId" class="btn btn-success">Güncelle</a>
+                <a href="/Sale/SatisGetir/@sa.SaleId" class="btn btn-success">Güncelle</a>
             </td>
             <td>
-                <a href="/Department/DepartmanPersonelSatis/@sa.StaffId" class="btn btn-warning">Detay</a>
+                <a href="/Sale/SatisDetay/@sa.SaleId" class="btn btn-warning">Detay</a>
             </td>
 
         </tr>
@@ -44,4 +46,19 @@
 
 </table>
 <a href="/Sale/YeniSatis" class="btn btn-primary">Yeni Satış Yap</a>
+<!--Jquery Script-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 
+<script>
+    $('#tbl1').dataTable({
+        "language": {
+
+            "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Turkish.json"
+
+        }
+    });
+</script>
