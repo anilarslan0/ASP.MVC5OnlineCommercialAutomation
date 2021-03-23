@@ -1,0 +1,33 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Class.Invoice
+@{
+    ViewBag.Title = "YeniFatura";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Fatura Ekle</h2>
+<br />
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.InvoiceSerialNo)
+    @Html.TextBoxFor(x => x.InvoiceSerialNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.InvoiceQueueNo)
+    @Html.TextBoxFor(x => x.InvoiceQueueNo, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Date)
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Time)
+    @Html.TextBoxFor(x => x.Time, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TaskOffice)
+    @Html.TextBoxFor(x => x.TaskOffice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Exporter)
+    @Html.TextBoxFor(x => x.Exporter, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Buyer)
+    @Html.TextBoxFor(x => x.Buyer, new { @class = "form-control" })
+
+    <button class="btn btn-primary">Ekle</button>
+</form>              

@@ -20,7 +20,10 @@ namespace MvcOnlineTicariOtomasyon.Models.Class
         [StringLength(6)]
         public string InvoiceQueueNo { get; set; }
         public DateTime Date { get; set; }
-        public DateTime Time { get; set; }
+
+        [Column(TypeName = "char")]
+        [StringLength(5)]
+        public string Time { get; set; }
 
         [Column(TypeName = "Varchar")]
         [StringLength(60)]
@@ -33,6 +36,9 @@ namespace MvcOnlineTicariOtomasyon.Models.Class
         [Column(TypeName = "Varchar")]
         [StringLength(30)]
         public string Buyer { get; set; }
+
+
+        public decimal TotalAmount { get; set; }
         public ICollection<InvoiceContent> InvoiceContents { get; set; }
 
 
