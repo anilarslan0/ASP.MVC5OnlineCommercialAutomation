@@ -84,7 +84,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public PartialViewResult Partial1()
         {
             var sorgu2 = from x in context.Staffs
-                         group x by x.DepartmentId into g
+                         group x by x.Department.DepartmentName into g
                          select new GroupClass2
                          {
                              Departman = g.Key,
@@ -102,6 +102,18 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public PartialViewResult Partial3()
         {
             var sorgu = context.Products.ToList();
+            return PartialView(sorgu);
+        }
+
+        public PartialViewResult Partial4()
+        {
+            var sorgu = from x in context.Products
+                         group x by x.ProductBrand into g
+                         select new GroupClass3
+                         {
+                             Brand = g.Key,
+                             Count = g.Count()
+                         };
             return PartialView(sorgu);
         }
     }

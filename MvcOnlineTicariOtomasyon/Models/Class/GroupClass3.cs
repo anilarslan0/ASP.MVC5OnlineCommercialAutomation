@@ -5,10 +5,9 @@ using System.Web;
 
 namespace MvcOnlineTicariOtomasyon.Models.Class
 {
-    public class GroupClass2
+    public class GroupClass3
     {
-        public string Departman { get; set; }
         public int Count { get; set; }
-
+        public string Brand { get; set; }
     }
 }
