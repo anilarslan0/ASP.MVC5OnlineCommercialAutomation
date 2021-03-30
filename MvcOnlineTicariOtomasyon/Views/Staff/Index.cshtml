@@ -26,12 +26,12 @@
                 @p.StaffName
             </td>
             <td>@p.StaffSurname</td>
-            <td>@p.StaffName</td>
+            <td>
+                <img src="@p.StaffImage"style="width:100px; height:100px;" />
+            </td>
             <td>@p.Department.DepartmentName</td>
             
-            <td>
-                <a href="/Staff/PersonelGetir/@p.StaffId" class="btn btn-success">Güncelle</a>
-            </td>
+            <td><a href="/Staff/PersonelGetir/@p.StaffId" class="btn btn-success">Güncelle</a></td>
             <td>
                 <a href="/Department/DepartmanPersonelSatis/@p.StaffId" class="btn btn-warning">Detay</a>
             </td>
