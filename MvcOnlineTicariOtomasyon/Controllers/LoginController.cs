@@ -8,10 +8,23 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 {
     public class LoginController : Controller
     {
+        Context context = new Context();
         // GET: Login
         public ActionResult Index()
         {
             return View();
+        }
+        [HttpGet]
+        public PartialViewResult Partial1()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public PartialViewResult Partial1(Customer customer)
+        {
+            context.Customers.Add(customer);
+            context.SaveChanges();
+            return PartialView();
         }
     }
 }

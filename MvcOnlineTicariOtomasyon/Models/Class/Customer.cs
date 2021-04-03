@@ -24,9 +24,14 @@ namespace MvcOnlineTicariOtomasyon.Models.Class
         [Column(TypeName = "Varchar")]
         [StringLength(13)]
         public string CustomerCity { get; set; }
+       
         [Column(TypeName = "Varchar")]
         [StringLength(50)]
         public string CustomerMail { get; set; }
+
+        [Column(TypeName = "Varchar")]
+        [StringLength(50)]
+        public string CustomerSifre { get; set; }
 
         public bool Status { get; set; }
         public ICollection<SalesAction> SalesActions { get; set; }
