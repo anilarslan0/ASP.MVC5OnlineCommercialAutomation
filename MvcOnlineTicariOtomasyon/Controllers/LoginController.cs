@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using MvcOnlineTicariOtomasyon.Models.Class;
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
@@ -25,6 +26,30 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             context.Customers.Add(customer);
             context.SaveChanges();
             return PartialView();
+        }
+
+        [HttpGet]
+        public ActionResult CustomerLogin1()
+        {
+          
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CustomerLogin1(Customer custom)
+        {
+            var bilgiler = context.Customers.FirstOrDefault(x => x.CustomerMail == custom.CustomerMail && x.CustomerSifre==custom.CustomerSifre);
+            if (bilgiler !=null)
+            {
+                FormsAuthentication.SetAuthCookie(bilgiler.CustomerMail, false);
+                Session["CustomerMail"] = bilgiler.CustomerMail.ToString();
+                return RedirectToAction("Index","CustomerPanel");
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+          
         }
     }
 }

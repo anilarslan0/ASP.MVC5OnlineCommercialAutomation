@@ -2905,6 +2905,8 @@
     <Content Include="webpanel\vendor\jquery\jquery.slim.min.map" />
     <Content Include="Views\Shared\_CustomerLayout.cshtml" />
     <Content Include="Views\CustomerPanel\Index.cshtml" />
+    <Content Include="Views\Login\Partial2.cshtml" />
+    <Content Include="Views\CustomerPanel\Siparislerim.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

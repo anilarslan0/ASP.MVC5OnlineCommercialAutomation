@@ -31,11 +31,11 @@
         <div class="bg-light border-right" id="sidebar-wrapper">
             <div class="sidebar-heading">Müşteri Panel </div>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">Profilim</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Siparişlerim</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Kargo Takibi</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Mesajlar</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Çıkış Yap</a>
+                <a href="/CustomerPanel/Index/" class="list-group-item list-group-item-action bg-light">Profilim</a>
+                <a href="/CustomerPanel/Siparislerim/" class="list-group-item list-group-item-action bg-light">Siparişlerim</a>
+                <a href="/Cargo/Index" class="list-group-item list-group-item-action bg-light">Kargo Takibi</a>
+                <a href="/CustomerPanel/Mesajlarim/" class="list-group-item list-group-item-action bg-light">Mesajlar</a>
+                <a href="/CustomerPanel/LogOut/" class="list-group-item list-group-item-action bg-light">Çıkış Yap</a>
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -52,7 +52,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Profilim <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/CustomerPanel/Index/">Profilim <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Kargom</a>
@@ -62,10 +62,10 @@
                                 Menü
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Siparişlerim</a>
-                                <a class="dropdown-item" href="#">Yardım</a>
+                                <a class="dropdown-item" href="/CustomerPanel/Siparislerim/">Siparişlerim</a>
+                                <a class="dropdown-item" href="/CustomerPanel/Yardım/">Yardım</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Çıkış Yap</a>
+                                <a class="dropdown-item" href="/CustomerPanel/LogOut/">Çıkış Yap</a>
                             </div>
                         </li>
                     </ul>
