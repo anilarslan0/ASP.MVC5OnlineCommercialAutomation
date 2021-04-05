@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -35,6 +36,14 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         [HttpPost]
         public ActionResult YeniPersonel(Staff staff)
         {
+            if (Request.Files.Count>0)
+            {
+                string dosyaAdi = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                string yol = "/Image/" + dosyaAdi + uzanti;
+                Request.Files[0].SaveAs(Server.MapPath(yol));
+                staff.StaffImage = "/Image/" + dosyaAdi + uzanti;
+            }
             context.Staffs.Add(staff);
             context.SaveChanges();
             return RedirectToAction("Index");
@@ -56,6 +65,15 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
         public ActionResult PersonelGuncelle(Staff staff)
         {
+
+            if (Request.Files.Count > 0)
+            {
+                string dosyaAdi = Path.GetFileName(Request.Files[0].FileName);
+                string uzanti = Path.GetExtension(Request.Files[0].FileName);
+                string yol = "/Image/" + dosyaAdi + uzanti;
+                Request.Files[0].SaveAs(Server.MapPath(yol));
+                staff.StaffImage = "/Image/" + dosyaAdi + uzanti;
+            }
             var personel = context.Staffs.Find(staff.StaffId);
             personel.StaffName = staff.StaffName;
             personel.StaffSurname = staff.StaffSurname;

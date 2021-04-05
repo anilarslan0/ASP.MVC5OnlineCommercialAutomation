@@ -3,6 +3,7 @@
     ViewBag.Title = "YeniUrun";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 <br />
 <h2>Yeni Ürun</h2>
 <br />
@@ -32,8 +33,14 @@
     @Html.LabelFor(x => x.Status)
     @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
     <br />
-    <button class="btn btn-primary">Ekle</button>
+    <button class="btn btn-primary" id="Btn1">Ekle</button>
 </form>
 
 
+
+<script>
+    $('#Btn1').click(function () {
+        alert("Ürün başarılı bir şekilde eklendi")
+    });
+</script>
 

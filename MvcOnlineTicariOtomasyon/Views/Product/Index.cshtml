@@ -9,7 +9,7 @@
 {
     <p>
         Ürün Adı: @Html.TextBox("urun")
-        <input type="submit" value="Ara"/>
+        <input type="submit" value="Ara" />
     </p>
 }
 <br />
@@ -22,26 +22,24 @@
         <th>ALIŞ FİYAT</th>
         <th>SATIŞ FİYAT</th>
         <th>KATEGORİ</th>
-   
         <th>Sil</th>
         <th>Güncelle</th>
     </tr>
     @foreach (var urun in Model)
     {
         <tr>
-         
+
             <td>@urun.ProductName</td>
             <td>@urun.ProductBrand</td>
             <td>@urun.ProductStock</td>
             <td>@urun.ProductFirstPrice ₺</td>
             <td>@urun.ProductSalePrice ₺</td>
             <td>@urun.Category.CategoryName</td>
-           
-            <td> <a href="/Product/UrunSil/@urun.ProductId" class="btn btn-danger">Sil</a></td>
-                <td> <a href="/Product/UrunGetir/@urun.ProductId" class="btn btn-success">Güncelle</a></td>
+            <td> <a href="/Product/UrunSil/@urun.ProductId" class="btn btn-danger" >Pasif Yap</a></td>
+            <td> <a href="/Product/UrunGetir/@urun.ProductId" class="btn btn-success">Güncelle</a></td>
         </tr>
-        }
-    
+    }
+
 </table>
-<a href="/Product/YeniUrun/" class="btn btn-primary">Ürün Ekle</a>
+<a href="/Product/YeniUrun/" class="btn btn-primary" >Ürün Ekle</a>
 

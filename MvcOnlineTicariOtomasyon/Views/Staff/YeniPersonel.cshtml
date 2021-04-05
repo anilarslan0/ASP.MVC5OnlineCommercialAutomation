@@ -5,7 +5,10 @@
 }
 <br />
 <h2>Yeni Personel</h2>
-
+<br />
+@using (Html.BeginForm("YeniPersonel", "Staff", FormMethod.Post, new { enctype = "multipart/form-data" }))
+ {
+ 
 <form class="form-group" method="post">
     @Html.LabelFor(x => x.StaffName)
     @Html.TextBoxFor(x => x.StaffName, new { @class = "form-control" })
@@ -14,10 +17,12 @@
     @Html.TextBoxFor(x => x.StaffSurname, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.StaffImage)
-    @Html.TextBoxFor(x => x.StaffImage, new { @class = "form-control" })
+    @*@Html.TextBoxFor(x => x.StaffImage, new { @class = "form-control" })*@
+    <input type="file" name="StaffImage" />
     <br />
     @Html.LabelFor(x => x.Department)
-    @Html.DropDownListFor(x=>x.DepartmentId,(List<SelectListItem>)ViewBag.dgr1 , new{@class="form-control"})
-<br />
+    @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
     <button class="btn btn-primary">Ekle</button>
 </form>
+}

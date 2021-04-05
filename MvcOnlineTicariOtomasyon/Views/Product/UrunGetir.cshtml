@@ -3,13 +3,14 @@
     ViewBag.Title = "UrunGetir";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<script src="~/Scripts/jquery-3.4.1.js"></script>
 <br />
 <h2>Ürün Güncelleme</h2>
 <br />
 
 @using (Html.BeginForm("UrunGuncelle", "Product", FormMethod.Post))
 {
-    @Html.HiddenFor(x=>x.ProductId)
+    @Html.HiddenFor(x => x.ProductId)
     @Html.LabelFor(x => x.ProductName)
     @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control" })
     <br />
@@ -27,7 +28,7 @@
     <br />
     @Html.LabelFor(x => x.Category.CategoryId)
     @*@Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })*@
-   @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
     <br />
     @Html.LabelFor(x => x.ProductImage)
     @Html.TextBoxFor(x => x.ProductImage, new { @class = "form-control" })
@@ -35,7 +36,13 @@
     @Html.LabelFor(x => x.Status)
     @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
     <br />
-    <button class="btn btn-warning">Güncelle</button>
+    <button class="btn btn-warning"  id="Btn1">Güncelle</button>
 
 }
 
+
+<script>
+    $('#Btn1').click(function () {
+        alert("Ürün başarılı bir şekilde eklendi")
+    });
+</script>

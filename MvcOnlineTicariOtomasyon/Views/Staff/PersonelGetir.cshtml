@@ -7,7 +7,7 @@
 <h2>Personel Güncelle</h2>
 <br />
 
-@using (Html.BeginForm("PersonelGuncelle", "Staff", FormMethod.Post))
+@using (Html.BeginForm("PersonelGuncelle", "Staff", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
 <div class="form-group">
     @Html.HiddenFor(x => x.StaffId)
@@ -20,7 +20,7 @@
 
     <br />
     @Html.LabelFor(x => x.StaffImage)
-    @Html.TextBoxFor(x => x.StaffImage, new { @class = "form-control" })
+    <input type="file" name="StaffImage" />
     <br />
     @Html.LabelFor(x => x.Department)
     @Html.DropDownListFor(x => x.DepartmentId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
