@@ -24,6 +24,7 @@
         <th>KATEGORİ</th>
         <th>Sil</th>
         <th>Güncelle</th>
+        <th>Satış Yap</th>
     </tr>
     @foreach (var urun in Model)
     {
@@ -37,6 +38,7 @@
             <td>@urun.Category.CategoryName</td>
             <td> <a href="/Product/UrunSil/@urun.ProductId" class="btn btn-danger" >Pasif Yap</a></td>
             <td> <a href="/Product/UrunGetir/@urun.ProductId" class="btn btn-success">Güncelle</a></td>
+            <td> <a href="/Product/SatisYap/@urun.ProductId" class="btn btn-primary">Satış Yap</a></td>
         </tr>
     }
 

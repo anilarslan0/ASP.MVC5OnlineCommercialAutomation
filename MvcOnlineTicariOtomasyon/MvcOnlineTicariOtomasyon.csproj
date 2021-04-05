@@ -2917,6 +2917,7 @@
     <Content Include="Views\Login\Partial2.cshtml" />
     <Content Include="Views\CustomerPanel\Siparislerim.cshtml" />
     <Content Include="Views\Alerts\Index.cshtml" />
+    <Content Include="Views\Product\SatisYap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

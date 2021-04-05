@@ -1,0 +1,36 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Class.SalesAction
+@{
+    ViewBag.Title = "SatisYap";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Satiş Yap</h2>
+<br />
+
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.ProductId)
+    @Html.TextBoxFor(x => x.ProductId, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.StaffId)
+    @Html.DropDownListFor(x => x.StaffId, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CustomerId)
+    @Html.TextBoxFor(x => x.CustomerId, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Piece)
+    @Html.TextBoxFor(x => x.Piece, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Price)
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TotalAmount)
+    @Html.TextBoxFor(x => x.TotalAmount, new { @class = "form-control" })
+    @*@Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })*@
+    <br />
+    @Html.LabelFor(x => x.Date)
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+
+
+    <button class="btn btn-primary">Satış Yap</button>
+</form>
