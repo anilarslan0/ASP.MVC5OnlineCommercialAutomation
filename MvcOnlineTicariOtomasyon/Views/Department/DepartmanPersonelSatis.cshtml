@@ -12,7 +12,7 @@
 </ol>
 <table class="table table-condensed">
     <tr>
-        <th>Satış Id</th>
+
         <th>Ürün</th>
         <th>Müşteri</th>
         <th>Fiyat</th>
@@ -24,10 +24,10 @@
    @foreach (var item in Model)
    {
         <tr>
-            <td>@item.SaleId</td>
+       
             <td>@item.Product.ProductName</td>
-            <td>@item.Customer.CustomerId @item.Customer.CustomerId</td>
-            <td>@item.Price</td>
+            <td>@item.Customer.CustomerName @item.Customer.CustomerName</td>
+            <td>@item.Price ₺</td>
             <td>@item.Piece</td>
             <td>@item.TotalAmount</td>
             <td>@item.Date</td>

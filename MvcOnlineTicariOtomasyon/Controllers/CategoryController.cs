@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MvcOnlineTicariOtomasyon.Models.Class;
+using PagedList;
+using PagedList.Mvc;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
@@ -12,9 +14,9 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         // GET: Category
 
         Context context = new Context();
-        public ActionResult Index()
+        public ActionResult Index(int page=1)
         {
-            var degerler = context.Categories.ToList();
+            var degerler = context.Categories.ToList().ToPagedList(page,5);
             return View(degerler);
         }
 
@@ -53,5 +55,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
     }
 }

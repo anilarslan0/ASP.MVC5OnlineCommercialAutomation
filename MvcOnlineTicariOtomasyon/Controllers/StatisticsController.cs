@@ -63,8 +63,8 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var deger15 = context.SalesActions.Count(x=>x.Date==today).ToString();
             ViewBag.d15 = deger15;
 
-            //var deger16 = context.SalesActions.Where(x=>x.Date==today).Sum(y=>y.TotalAmount).ToString();
-            //ViewBag.d16 = deger16;
+            var deger16 = context.SalesActions.Where(x=>x.Date==today).Sum(y=>(decimal?)y.TotalAmount).ToString();
+            ViewBag.d16 = deger16;
 
             return View();
         }

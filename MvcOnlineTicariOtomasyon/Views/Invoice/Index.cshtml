@@ -6,11 +6,10 @@
 }
 <br />
 <h2>Faturalar</h2>
-<br />
 
 <table class="table table-bordered" style="margin-top:20px;">
     <tr>
-        <th>ID</th>
+     
         <th>Seri No</th>
         <th>Sıra No</th>
         <th>Vergi Dairesi</th>
@@ -21,25 +20,62 @@
         <th>Toplam Tutar</th>
         <th>Güncelle</th>
         <th>Detay</th>
+       
+        <th>Yeni Kalem</th>
     </tr>
     @foreach (var item in Model)
     {
 <tr>
-    <td>@item.InvoiceId</td>
+
     <td>@item.InvoiceSerialNo </td>
-    <td>@item.InvoiceSerialNo </td>
+    <td>@item.InvoiceQueueNo </td>
     <td>@item.TaskOffice </td>
     <td>@item.Date </td>
     <td>@item.Time </td>
     <td>@item.Exporter </td>
     <td>@item.Buyer </td>
-    <td> @item.TotalAmount</td>
+    <td> @item.TotalAmount ₺</td>
 
     <td><a href="/Invoice/FaturaGetir/@item.InvoiceId" class="btn btn-warning">Güncelle</a></td>
-    <td><a href="/Invoice/FaturaDetay/@item.InvoiceId" class="btn btn-warning">Detay</a></td>
-
+    <td><a href="/Invoice/FaturaDetay/@item.InvoiceId" class="btn btn-success">Detay</a></td>
+ 
+    <td><a href="/Invoice/FaturaDetay/@item.InvoiceId" class="btn btn-success">Kalem</a></td>
 </tr>
     }
 
 </table>
 <a href="/Invoice/YeniFatura" class="btn btn-primary">Fatura Ekle</a>
+<br />
+<br />
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#Modal1">PopUp Penceresi</button>
+
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Popup Ekranı</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered" >
+                    <tr>
+                        <td>Seri No</td>
+                        <td>Sıra No</td>
+                        <td>Tutar</td>
+                    </tr>
+        
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.InvoiceSerialNo</td>
+                                <td>@item.InvoiceQueueNo</td>
+                                <td>@item.TotalAmount</td>
+                            </tr>
+                        }
+                 
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Tamam</button>
+
+            </div>
+        </div>
+    </div>
+</div>
