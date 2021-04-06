@@ -89,7 +89,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             return View(degerler);
         }
         [HttpGet]
-        public ActionResult SatisYap()
+        public ActionResult SatisYap(int id)
         {
             List<SelectListItem> deger3 = (from x in context.Staffs.ToList()
                                            select new SelectListItem
@@ -98,12 +98,19 @@ namespace MvcOnlineTicariOtomasyon.Controllers
                                                Value = x.StaffId.ToString()
                                            }).ToList();
             ViewBag.dgr3 = deger3;
+            var deger4 = context.Products.Find(id);
+            ViewBag.dgr4= deger4.ProductId;
+
+            ViewBag.dgr5 = deger4.ProductSalePrice;
             return View();
         }
         [HttpPost]
         public ActionResult SatisYap(SalesAction saleAction)
         {
-            return View();
+            saleAction.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            context.SalesActions.Add(saleAction);
+            context.SaveChanges();
+            return RedirectToAction("Index","Sale");
         }
 
 
