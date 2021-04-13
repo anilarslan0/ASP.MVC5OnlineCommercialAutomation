@@ -145,6 +145,7 @@
     <Compile Include="Controllers\CustomerPanelController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\GraphicController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Models\Class\Admin.cs" />
     <Compile Include="Models\Class\CargoDetail.cs" />
     <Compile Include="Models\Class\CargoFollow.cs" />
+    <Compile Include="Models\Class\ChartFor.cs" />
     <Compile Include="Models\Class\Context.cs" />
     <Compile Include="Models\Class\Detail.cs" />
     <Compile Include="Models\Class\Expense.cs" />
@@ -2929,6 +2931,10 @@
     <Content Include="Views\Cargo\YeniKargo.cshtml" />
     <Content Include="Views\Cargo\KargoTakip.cshtml" />
     <Content Include="Views\QR\Index.cshtml" />
+    <Content Include="Views\Graphic\Index.cshtml" />
+    <Content Include="Views\Graphic\Grafik.cshtml" />
+    <Content Include="Views\Graphic\Index3.cshtml" />
+    <Content Include="Views\Graphic\Index5.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
