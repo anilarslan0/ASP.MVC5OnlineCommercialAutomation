@@ -1,0 +1,31 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Class
+@model List<CargoFollow>
+@{
+    ViewBag.Title = "CariKargoTakip";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Cari Kargo Takip</h2>
+
+<br />
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>Sıra</th>
+        <th>Açıklama</th>
+        <th>Tarih</th>
+
+    </tr>
+    @{ int i = 0;} 
+    @foreach (var cargo in Model)
+    {
+        <tr>
+            <td>@{i++;} @i</td>
+            <td>
+                @cargo.Description
+            </td>
+            <td>@cargo.Date</td>
+
+        </tr>
+    }
+
+</table>

@@ -2941,6 +2941,8 @@
     <Content Include="Views\CustomerPanel\GönderilenMesajlar.cshtml" />
     <Content Include="Views\CustomerPanel\MessageDetay.cshtml" />
     <Content Include="Views\CustomerPanel\YeniMesaj.cshtml" />
+    <Content Include="Views\CustomerPanel\KargoTakip.cshtml" />
+    <Content Include="Views\CustomerPanel\CariKargoTakip.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

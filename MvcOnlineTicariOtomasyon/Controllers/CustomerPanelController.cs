@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
@@ -19,7 +20,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.m = mail;
             return View(degerler);
         }
-
+        [Authorize]
         public ActionResult Siparislerim()
         {
             var mail = (string)Session["CustomerMail"];
@@ -28,7 +29,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
             return View(degerler);
         }
-
+        [Authorize]
         public ActionResult GelenMesajlar()
         {
             var mail = (string)Session["CustomerMail"];
@@ -40,7 +41,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             return View(mesajlar);
         }
 
-
+        [Authorize]
         public ActionResult GönderilenMesajlar()
         {
             var mail = (string)Session["CustomerMail"];
@@ -51,6 +52,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.d1 = gelensayisi;
             return View(mesajlar);
         }
+        [Authorize]
         public ActionResult MessageDetay(int id)
         {
             var degerler = context.messages.Where(x => x.MessageId == id).ToList();
@@ -63,7 +65,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
 
 
-
+        [Authorize]
         [HttpGet]
         public ActionResult YeniMesaj()
         {
@@ -74,6 +76,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.d1 = gelensayisi;
             return View();
         }
+        [Authorize]
         [HttpPost]
         public ActionResult YeniMesaj(Message message)
         {
@@ -82,6 +85,26 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             context.messages.Add(message);
             context.SaveChanges();
             return View();
+        }
+
+        public ActionResult KargoTakip(string p)
+        {
+            var k = from x in context.CargoDetails select x;
+            k = k.Where(y=>y.FollowCode.Contains(p));
+            return View(k.ToList());
+        }
+
+        public ActionResult CariKargoTakip(string id)
+        {
+            var degerler = context.cargoFollows.Where(x => x.FollowCode == id).ToList();
+
+            return View(degerler);
+        }
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+            return RedirectToAction("Index", "Login");
         }
 
     }
