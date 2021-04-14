@@ -148,6 +148,7 @@
     <Compile Include="Controllers\GraphicController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\ProductDetailController.cs" />
     <Compile Include="Controllers\QRController.cs" />
     <Compile Include="Controllers\SaleController.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Models\Class\Department.cs" />
     <Compile Include="Models\Class\InvoiceContent.cs" />
     <Compile Include="Models\Class\JoinProductDetail.cs" />
+    <Compile Include="Models\Class\Message.cs" />
     <Compile Include="Models\Class\Product.cs" />
     <Compile Include="Models\Class\SalesAction.cs" />
     <Compile Include="Models\Class\Staff.cs" />
@@ -2935,10 +2937,15 @@
     <Content Include="Views\Graphic\Grafik.cshtml" />
     <Content Include="Views\Graphic\Index3.cshtml" />
     <Content Include="Views\Graphic\Index5.cshtml" />
+    <Content Include="Views\CustomerPanel\GelenMesajlar.cshtml" />
+    <Content Include="Views\CustomerPanel\GönderilenMesajlar.cshtml" />
+    <Content Include="Views\CustomerPanel\MessageDetay.cshtml" />
+    <Content Include="Views\CustomerPanel\YeniMesaj.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Expense\" />
+    <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
