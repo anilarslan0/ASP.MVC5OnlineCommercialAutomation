@@ -16,8 +16,25 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         public ActionResult Index()
         {
             var mail = (string)Session["CustomerMail"];
-            var degerler = context.Customers.FirstOrDefault(x=>x.CustomerMail==mail);
+            var degerler = context.messages.Where(x=>x.Receiver==mail).ToList();
             ViewBag.m = mail;
+            var mailId = context.Customers.Where(x => x.CustomerMail == mail).Select(y => y.CustomerId).FirstOrDefault();
+            ViewBag.mId = mailId;
+
+            var toplamSatis = context.SalesActions.Where(x => x.CustomerId == mailId).Count();
+            ViewBag.toplamSatis = toplamSatis;
+
+            var toplamTutar = context.SalesActions.Where(x => x.CustomerId == mailId).Sum(y => y.TotalAmount);
+            ViewBag.toplamTutar = toplamTutar;
+
+            var toplamUrunSayisi = context.SalesActions.Where(x => x.CustomerId == mailId).Sum(y=>y.Piece);
+            ViewBag.toplamUrun = toplamUrunSayisi;
+
+            var adSoyad = context.Customers.Where(x => x.CustomerMail == mail).Select(y => y.CustomerName + " " + y.CustomerSurname).FirstOrDefault();
+            ViewBag.adSoyad = adSoyad;
+
+        
+
             return View(degerler);
         }
         [Authorize]
@@ -105,6 +122,26 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             FormsAuthentication.SignOut();
             Session.Abandon();
             return RedirectToAction("Index", "Login");
+        }
+
+        public PartialViewResult Setting()
+        {
+            var mail = (string)Session["CustomerMail"];
+            var id = context.Customers.Where(x => x.CustomerMail == mail).Select(y => y.CustomerId).FirstOrDefault();
+            var customerFind = context.Customers.Find(id);
+            return PartialView("Setting",customerFind);
+        }
+
+        public ActionResult UpdateProfil(Customer customer)
+        {
+            var custom = context.Customers.Find(customer.CustomerId);
+            custom.CustomerName = customer.CustomerName;
+            custom.CustomerSurname = customer.CustomerSurname;
+            custom.CustomerSifre = customer.CustomerSifre;
+            custom.CustomerCity = customer.CustomerCity;
+            custom.CustomerMail = customer.CustomerMail;
+            context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
     }

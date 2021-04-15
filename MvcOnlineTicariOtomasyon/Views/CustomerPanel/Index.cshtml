@@ -1,35 +1,505 @@
-﻿@model MvcOnlineTicariOtomasyon.Models.Class.Customer
+﻿@using MvcOnlineTicariOtomasyon.Models.Class
+@model List<Message>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
-<br />
-<h2>Müşteri Paneli</h2>
 
-@using (Html.BeginForm("Index2", "CustomerPanel", FormMethod.Post))
-{
-<table class="table table-hover">
-    <tr>
-        <td><label>Mail Adresi: @HttpContext.Current.User.Identity.Name</label></td>
-    </tr>
 
-    <tr>
-        <td>@Html.TextBoxFor(x => x.CustomerName, new { @class = "form-control" })</td>
-    </tr>
 
-    <tr>
-        <td>@Html.TextBoxFor(x => x.CustomerSurname, new { @class = "form-control" })</td>
-    </tr>
+<!DOCTYPE html>
 
-    <tr>
-        <td>@Html.TextBoxFor(x => x.CustomerCity, new { @class = "form-control" })</td>
-    </tr>
+<html>
 
-    <tr>
-        <td>@Html.TextBoxFor(x => x.CustomerSifre, new { @class = "form-control" })</td>
-    </tr>
+<head>
 
-   
-</table>
-<button class="btn btn-warning">Güncelle</button>
-}
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>AdminLTE 3 | User Profile</title>
+
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/plugins/fontawesome-free/css/all.min.css">
+
+    <!-- Ionicons -->
+
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+    <!-- Theme style -->
+
+    <link rel="stylesheet" href="~/AdminLTE-3.0.4/dist/css/adminlte.min.css">
+
+    <!-- Google Font: Source Sans Pro -->
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Content Wrapper. Contains page content -->
+        <!-- Content Header (Page header) -->
+
+        <section class="content-header">
+
+            <div class="container-fluid">
+
+                <div class="row mb-2">
+
+                    <div class="col-sm-6">
+
+                        <h1>Profilim</h1>
+
+                    </div>
+
+
+
+                </div>
+
+            </div><!-- /.container-fluid -->
+
+        </section>
+
+        <!-- Main content -->
+
+        <section class="content">
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                        <!-- Profile Image -->
+
+                        <div class="card card-primary card-outline">
+
+                            <div class="card-body box-profile">
+
+                                <div class="text-center">
+
+                                    <img class="profile-user-img img-fluid img-circle"
+                                         src="~/AdminLTE-3.0.4/dist/img/avatar5.png"
+                                         alt="User profile picture">
+
+                                </div>
+                              
+
+                                <h3 class="profile-username text-center">@ViewBag.adSoyad </h3>
+
+                                <p class="text-muted text-center">@ViewBag.m</p>
+                          
+                                <ul class="list-group list-group-unbordered mb-3">
+
+                                    <li class="list-group-item">
+
+                                        <b>Toplam Satış:</b> <a class="float-right">@ViewBag.toplamSatis</a>
+
+                                    </li>
+
+                                    <li class="list-group-item">
+
+                                        <b>Toplam Tutar:</b> <a class="float-right">@ViewBag.toplamTutar ₺</a>
+
+                                    </li>
+
+                                    <li class="list-group-item">
+
+                                        <b>Alınan Toplam Ürün Sayısı:</b> <a class="float-right">@ViewBag.toplamUrun</a>
+
+                                    </li>
+
+                                </ul>
+
+                                <a href="/CustomerPanel/KargoTakip/" class="btn btn-primary btn-block"><b>Kargo Takip</b></a>
+                            
+                            </div>
+
+                            <!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.card -->
+                        <!-- About Me Box -->
+
+                        <div class="card card-primary">
+
+                            <div class="card-header">
+
+                                <h3 class="card-title">Hakkımda</h3>
+
+                            </div>
+
+                            <!-- /.card-header -->
+                           
+
+                            <div class="card-body">
+
+                                <strong><i class="fas fa-book mr-1"></i> Meslek</strong>
+
+                                <p class="text-muted">
+
+                                   Yazılım Mühendisi 
+
+                                </p>
+
+                                <hr>
+
+                                <strong><i class="fas fa-map-marker-alt mr-1"></i> Şehir</strong>
+
+                                <p class="text-muted">dsadas</p>
+
+                                <hr>
+
+                                <strong><i class="fas fa-pencil-alt mr-1"></i> Yetenekler</strong>
+
+                                <p class="text-muted">
+
+                                    <span class="tag tag-danger">UI Design</span>
+
+                                    <span class="tag tag-success">Coding</span>
+
+                                    <span class="tag tag-info">Javascript</span>
+
+                                    <span class="tag tag-warning">PHP</span>
+
+                                    <span class="tag tag-primary">Node.js</span>
+
+                                </p>
+
+                                <hr>
+
+                             
+
+                            </div>
+                          
+                            <!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.card -->
+
+                    </div>
+
+                    <!-- /.col -->
+
+                    <div class="col-md-9">
+
+                        <div class="card">
+
+                            <div class="card-header p-2">
+
+                                <ul class="nav nav-pills">
+
+                                    <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Mesajar</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Duyurular</a></li>
+
+                                    <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Ayarlar</a></li>
+
+                                </ul>
+
+                            </div><!-- /.card-header -->
+
+                            <div class="card-body">
+
+                                <div class="tab-content">
+
+                                    <div class="active tab-pane" id="activity">
+
+                                        <!-- Post -->
+                                        @foreach (var item in Model)
+                                        {
+
+
+                                        <div class="post">
+
+                                            <div class="user-block">
+
+                                                <img class="img-circle img-bordered-sm" src="~/AdminLTE-3.0.4/dist/img/user1-128x128.jpg" alt="user image">
+
+                                                <span class="username">
+
+                                                    <a href="#">@item.Sender</a>
+
+                                                    <a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>
+
+                                                </span>
+
+                                                <span class="description">@item.İssue - @item.Date.ToShortDateString()/span>
+
+                                            </div>
+
+                                            <!-- /.user-block -->
+
+                                            <p>
+
+                                                @item.Content
+
+                                            </p>
+
+
+
+                                        </div>
+
+                                        }
+                                        <!-- /.post -->
+
+                                    </div>
+
+                                    <!-- /.tab-pane -->
+
+                                    <div class="tab-pane" id="timeline">
+
+                                        <!-- The timeline -->
+
+                                        <div class="timeline timeline-inverse">
+
+                                            <!-- timeline time label -->
+
+                                            <div class="time-label">
+
+                                                <span class="bg-danger">
+
+                                                    10 Feb. 2014
+
+                                                </span>
+
+                                            </div>
+
+                                            <!-- /.timeline-label -->
+                                            <!-- timeline item -->
+
+                                            <div>
+
+                                                <i class="fas fa-envelope bg-primary"></i>
+
+                                                <div class="timeline-item">
+
+                                                    <span class="time"><i class="far fa-clock"></i> 12:05</span>
+
+                                                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                                                    <div class="timeline-body">
+
+                                                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+
+                                                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
+
+                                                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+
+                                                        quora plaxo ideeli hulu weebly balihoo...
+
+                                                    </div>
+
+                                                    <div class="timeline-footer">
+
+                                                        <a href="#" class="btn btn-primary btn-sm">Read more</a>
+
+                                                        <a href="#" class="btn btn-danger btn-sm">Delete</a>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!-- END timeline item -->
+                                            <!-- timeline item -->
+
+                                            <div>
+
+                                                <i class="fas fa-user bg-info"></i>
+
+                                                <div class="timeline-item">
+
+                                                    <span class="time"><i class="far fa-clock"></i> 5 mins ago</span>
+
+                                                    <h3 class="timeline-header border-0">
+
+                                                        <a href="#">Sarah Young</a> accepted your friend request
+
+                                                    </h3>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!-- END timeline item -->
+                                            <!-- timeline item -->
+
+                                            <div>
+
+                                                <i class="fas fa-comments bg-warning"></i>
+
+                                                <div class="timeline-item">
+
+                                                    <span class="time"><i class="far fa-clock"></i> 27 mins ago</span>
+
+                                                    <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
+
+                                                    <div class="timeline-body">
+
+                                                        Take me to your leader!
+
+                                                        Switzerland is small and neutral!
+
+                                                        We are more c Germany, ambitious and misunderstood!
+
+                                                    </div>
+
+                                                    <div class="timeline-footer">
+
+                                                        <a href="#" class="btn btn-warning btn-flat btn-sm">View comment</a>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!-- END timeline item -->
+                                            <!-- timeline time label -->
+
+                                            <div class="time-label">
+
+                                                <span class="bg-success">
+
+                                                    3 Jan. 2014
+
+                                                </span>
+
+                                            </div>
+
+                                            <!-- /.timeline-label -->
+                                            <!-- timeline item -->
+
+                                            <div>
+
+                                                <i class="fas fa-camera bg-purple"></i>
+
+                                                <div class="timeline-item">
+
+                                                    <span class="time"><i class="far fa-clock"></i> 2 days ago</span>
+
+                                                    <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
+
+                                                    <div class="timeline-body">
+
+                                                        <img src="http://placehold.it/150x100" alt="...">
+
+                                                        <img src="http://placehold.it/150x100" alt="...">
+
+                                                        <img src="http://placehold.it/150x100" alt="...">
+
+                                                        <img src="http://placehold.it/150x100" alt="...">
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!-- END timeline item -->
+
+                                            <div>
+
+                                                <i class="far fa-clock bg-gray"></i>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- /.tab-pane -->
+
+                                    <div class="tab-pane" id="settings">
+
+                                       @Html.Action("Setting", "CustomerPanel")
+
+                                    </div>
+
+                                    <!-- /.tab-pane -->
+
+                                </div>
+
+                                <!-- /.tab-content -->
+
+                            </div><!-- /.card-body -->
+
+                        </div>
+
+                        <!-- /.nav-tabs-custom -->
+
+                    </div>
+
+                    <!-- /.col -->
+
+                </div>
+
+                <!-- /.row -->
+
+            </div><!-- /.container-fluid -->
+
+        </section>
+
+        <!-- /.content -->
+
+    </div>
+
+    <!-- /.content-wrapper -->
+
+    <footer class="main-footer">
+
+        <div class="float-right d-none d-sm-block">
+
+            <b>Version</b> 3.0.4
+
+        </div>
+
+        <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+
+        reserved.
+
+    </footer>
+
+    <!-- Control Sidebar -->
+
+    <aside class="control-sidebar control-sidebar-dark">
+
+        <!-- Control sidebar content goes here -->
+
+    </aside>
+
+    <!-- /.control-sidebar -->
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+
+    <script src="~/AdminLTE-3.0.4/plugins/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap 4 -->
+
+    <script src="~/AdminLTE-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE App -->
+
+    <script src="~/AdminLTE-3.0.4/dist/js/adminlte.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+
+    <script src="~/AdminLTE-3.0.4/dist/js/demo.js"></script>
+
+</body>
+
+</html>

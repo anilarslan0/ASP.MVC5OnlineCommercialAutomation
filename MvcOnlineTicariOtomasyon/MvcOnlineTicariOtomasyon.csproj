@@ -144,6 +144,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\CustomerPanelController.cs" />
     <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\GraphicController.cs" />
     <Compile Include="Controllers\InvoiceController.cs" />
@@ -2943,9 +2944,12 @@
     <Content Include="Views\CustomerPanel\YeniMesaj.cshtml" />
     <Content Include="Views\CustomerPanel\KargoTakip.cshtml" />
     <Content Include="Views\CustomerPanel\CariKargoTakip.cshtml" />
+    <Content Include="Views\CustomerPanel\Setting.cshtml" />
+    <Content Include="Views\Error\PageError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Default\" />
     <Folder Include="Views\Expense\" />
     <Folder Include="Views\Message\" />
   </ItemGroup>
