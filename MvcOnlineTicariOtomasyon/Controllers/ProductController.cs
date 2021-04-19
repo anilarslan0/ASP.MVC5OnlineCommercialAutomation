@@ -6,11 +6,13 @@ using System.Web.Mvc;
 using MvcOnlineTicariOtomasyon.Models.Class;
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+   
     public class ProductController : Controller
     {
         // GET: Product
 
         Context context = new Context();
+        [Authorize]
         public ActionResult Index(string urun)
         {
             var urunler = from x in context.Products select x;

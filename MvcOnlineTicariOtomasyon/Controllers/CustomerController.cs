@@ -16,6 +16,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             var musteri = context.Customers.Where(x=>x.Status==true).ToList();
             return View(musteri);
         }
+        
         [HttpGet]
        public ActionResult YeniMüşteri()
         {

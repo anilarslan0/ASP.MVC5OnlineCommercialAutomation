@@ -7,6 +7,7 @@ using System.Web.Security;
 using MvcOnlineTicariOtomasyon.Models.Class;
 namespace MvcOnlineTicariOtomasyon.Controllers
 {
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         Context context = new Context();
