@@ -12,7 +12,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
     {
         Context context = new Context();
         // GET: CustomerPanel
-        [Authorize]
+      
         public ActionResult Index()
         {
             var mail = (string)Session["CustomerMail"];
@@ -37,7 +37,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
             return View(degerler);
         }
-        [Authorize]
+       
         public ActionResult Siparislerim()
         {
             var mail = (string)Session["CustomerMail"];
@@ -46,7 +46,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
 
             return View(degerler);
         }
-        [Authorize]
+     
         public ActionResult GelenMesajlar()
         {
             var mail = (string)Session["CustomerMail"];
@@ -58,7 +58,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             return View(mesajlar);
         }
 
-        [Authorize]
+       
         public ActionResult GönderilenMesajlar()
         {
             var mail = (string)Session["CustomerMail"];
@@ -69,7 +69,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.d1 = gelensayisi;
             return View(mesajlar);
         }
-        [Authorize]
+        
         public ActionResult MessageDetay(int id)
         {
             var degerler = context.messages.Where(x => x.MessageId == id).ToList();
@@ -82,7 +82,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
         }
 
 
-        [Authorize]
+    
         [HttpGet]
         public ActionResult YeniMesaj()
         {
@@ -93,7 +93,7 @@ namespace MvcOnlineTicariOtomasyon.Controllers
             ViewBag.d1 = gelensayisi;
             return View();
         }
-        [Authorize]
+       
         [HttpPost]
         public ActionResult YeniMesaj(Message message)
         {

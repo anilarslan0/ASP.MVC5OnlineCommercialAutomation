@@ -11,8 +11,8 @@ namespace MvcOnlineTicariOtomasyon.Controllers
     {
         // GET: Product
 
-        Context context = new Context();
-        [Authorize]
+        Context context = new Context(); 
+        
         public ActionResult Index(string urun)
         {
             var urunler = from x in context.Products select x;
